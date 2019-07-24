@@ -1,0 +1,36 @@
+{
+  "name": "second_graphql_mern_app",
+  "version": "1.0.0",
+  "description": "A chat app with Javascript and GraphlQl",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start-dev": "nodemon --exec babel-node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/EfeAgare/graphQl_MERN_stack.git"
+  },
+  "keywords": [
+    "MERN"
+  ],
+  "author": "Efe",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/EfeAgare/graphQl_MERN_stack/issues"
+  },
+  "homepage": "https://github.com/EfeAgare/graphQl_MERN_stack#readme",
+  "dependencies": {
+    "apollo-server": "^2.7.0",
+    "express": "^4.17.1",
+    "express-graphql": "^0.9.0",
+    "graphql": "^14.4.2"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.5.5",
+    "@babel/core": "^7.5.5",
+    "@babel/node": "^7.5.5",
+    "@babel/preset-env": "^7.5.5",
+    "nodemon": "^1.19.1"
+  }
+}
