@@ -7,6 +7,8 @@ import mongoose from 'mongoose';
 import typeDefs from './typeDefs_OR_Schema';
 import resolvers from './resolvers';
 import dotenv from 'dotenv';
+import AuthDirective from './directives/auth';
+import GuessDirective from './directives/guest';
 
 const app = express();
 
@@ -37,7 +39,8 @@ app.use(
     store,
     name: process.env.SESSION_NAME,
     secret: process.env.SESSION_SECRET,
-    resave: false,
+    resave: true,
+    rolling: true,
     saveUninitialized: false,
     cookie: {
       maxAge: 1000 * 60 * 60 * 24,
@@ -53,6 +56,10 @@ app.use(
       // These will be defined for both new or existing servers
       typeDefs,
       resolvers,
+      schemaDirectives: {
+        auth: AuthDirective,
+        guess: GuessDirective
+      },
       playground: !NODE_ENV_PROD
         ? false
         : {

@@ -1,5 +1,5 @@
 import { Schema, model } from 'mongoose';
-import { hashSync, compare } from 'bcryptjs';
+import { hashSync } from 'bcryptjs';
 
 const userSchema = new Schema(
   {
@@ -7,7 +7,7 @@ const userSchema = new Schema(
       type: String,
       validate: {
         validator: async email => await User.alreadyExist({ email }),
-        message: ({ value }) => ` Email ${value} has already been taken`
+        message: ({ value }) => ` Email  has already been taken`
       }
     },
     // email: String,
@@ -15,9 +15,13 @@ const userSchema = new Schema(
       type: String,
       validate: {
         validator: async username => await User.alreadyExist({ username }),
-        message: ({ value }) => ` Username ${value} has already been taken`
+        message: ({ value }) => ` Username has already been taken`
       }
     },
+    chat: [{
+     type: Schema.Types.ObjectId,
+     ref: 'Chat'
+    }],
     username: String,
     name: String,
     password: String
