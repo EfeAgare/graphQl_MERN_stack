@@ -5,8 +5,6 @@ export default gql`
     id: ID!
     body: String!
     sender: User!
-    chat: Chat!
-    lastMessage: Message
     createdAt: String!
     updatedAt: String!
   }

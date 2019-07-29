@@ -1,3 +1,4 @@
-import user from './user'
+import user from './user';
+import chat from './chat';
 
-export default [user]
+export default [user, chat];

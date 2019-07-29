@@ -1,5 +1,5 @@
 import Joi from '@hapi/joi';
-import { User } from '../models';
+import User from '../models/user';
 import mongoose from 'mongoose';
 import { UserInputError } from 'apollo-server-express';
 import * as Auth from '../middleware/auth';
@@ -63,5 +63,15 @@ export default {
 
       return Auth.signOut(context.req, context.res);
     }
+  }, 
+
+  // CUSTOM RESOLUTION LOGIC FOR THE CHAT OF THE USER
+  User: {
+    chats: async (user, args, { req }, info) => {
+      // TODO: should not be able to list other ppl's chats or read their msgs!
+      await user.populate('chats').execPopulate()
+  
+      return user.chats
+    }
   }
-};
+}

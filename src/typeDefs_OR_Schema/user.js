@@ -1,6 +1,7 @@
 import { gql } from 'apollo-server-express';
 
 export default gql`
+
   extend type Query {
     me: User @auth
     user(id: ID!): User @auth
@@ -23,8 +24,8 @@ export default gql`
     email: String!
     username: String!
     name: String!
-    chat: [Chat!]! 
+    chats: [Chat!]!
     createdAt: String!
-    updatedAt: String! 
+    updatedAt: String!
   }
 `;

@@ -7,7 +7,7 @@ const userSchema = new Schema(
       type: String,
       validate: {
         validator: async email => await User.alreadyExist({ email }),
-        message: ({ value }) => ` Email  has already been taken`
+        message: () => ` Email  has already been taken`
       }
     },
     // email: String,
@@ -15,10 +15,10 @@ const userSchema = new Schema(
       type: String,
       validate: {
         validator: async username => await User.alreadyExist({ username }),
-        message: ({ value }) => ` Username has already been taken`
+        message: () => ` Username has already been taken`
       }
     },
-    chat: [{
+    chats: [{
      type: Schema.Types.ObjectId,
      ref: 'Chat'
     }],
